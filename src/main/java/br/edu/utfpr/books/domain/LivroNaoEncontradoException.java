@@ -1,7 +1,7 @@
-package br.edu.utfpr.books.exception;
+package br.edu.utfpr.books.domain;
 
 public class LivroNaoEncontradoException extends RuntimeException {
-    public LivroNaoEncontradoException(String message) {
+    public LivroNaoEncontradoException(final String message) {
         super(message);
     }
 }
