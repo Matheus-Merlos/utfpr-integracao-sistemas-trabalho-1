@@ -28,6 +28,7 @@ public class BookRepository {
     public Book criarLivro(Book book) {
 
         BookEntity entity = mapper.toEntity(book);
+        entity.setId(currentId);
 
         database.add(entity);
         currentId++;

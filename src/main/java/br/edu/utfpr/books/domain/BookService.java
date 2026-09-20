@@ -39,6 +39,9 @@ public class BookService {
 
     public void deleteById(int id) {
 
+        // para ter a validaco por id
+        this.getById(id);
+
         repository.deleteLivro(id);
     }
 }
