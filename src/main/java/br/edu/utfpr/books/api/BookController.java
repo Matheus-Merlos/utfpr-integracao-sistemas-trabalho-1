@@ -16,18 +16,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@RestController("/livros")
+@RestController()
+@RequestMapping("/livros")
 public class BookController {
 
     private final BookApiMapper mapper;
 
     private final BookService service;
-
     @GetMapping()
     public ResponseEntity<List<BookResponseDTO>> getLivros() {
 
@@ -54,13 +55,13 @@ public class BookController {
         return ResponseEntity.ok(mapper.toDto(service.getById(id)));
     }
 
-    @PutMapping("/livros/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<BookResponseDTO> updateLivro(@PathVariable int id, @Valid @RequestBody BookRequestDTO body) {
 
         return ResponseEntity.ok(mapper.toDto(service.update(id, mapper.toDomain(body))));
     }
 
-    @DeleteMapping("/livros/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteLivro(@PathVariable int id) {
 
         service.deleteById(id);
