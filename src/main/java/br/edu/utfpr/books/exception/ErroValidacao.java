@@ -1,9 +1,9 @@
 package br.edu.utfpr.books.exception;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import java.util.List;
 
 @AllArgsConstructor
 @Data
